@@ -14,8 +14,7 @@ export const birthday = {
 
   hero: {
     title: "🎉 HAPPY BIRTHDAY, JOSHUA LAZER! 🎉",
-    message:
-      "Today isn't just another day...\nIt's the day someone amazing came into this world.",
+    message: "Today isn't just another day...\nIt's the day someone amazing came into this world.",
   },
 
   celebration: {
@@ -30,8 +29,9 @@ export const birthday = {
 
   memories: {
     heading: "Memory Lane 📸",
+    message: "HAPPY BIRTHDAY LAZEREHH 🎉🎂🥳",
     photos: [
-      { src: "", caption: "That one unforgettable day" },
+      { src: "/photos/joshua-birthday.jpeg", caption: "That one unforgettable day" },
       { src: "", caption: "Golden hour vibes" },
       { src: "", caption: "Laughing till it hurt" },
       { src: "", caption: "Adventure mode: ON" },

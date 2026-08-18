@@ -26,17 +26,11 @@ export const Route = createFileRoute("/")({
   component: BirthdayPage,
 });
 
-function GlowButton({
-  children,
-  onClick,
-}: {
-  children: React.ReactNode;
-  onClick: () => void;
-}) {
+function GlowButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="animate-pulse-glow group relative inline-flex items-center justify-center rounded-full bg-[var(--gradient-gold)] px-8 py-4 text-base font-semibold tracking-wide text-primary-foreground transition-transform duration-300 hover:scale-105 active:scale-95 sm:px-12 sm:py-5 sm:text-lg"
+      className="animate-pulse-glow group relative inline-flex items-center justify-center rounded-full bg-gold px-8 py-4 text-center text-base font-semibold tracking-wide text-primary-foreground transition-transform duration-300 hover:scale-105 active:scale-95 sm:px-12 sm:py-5 sm:text-lg"
     >
       <span className="relative z-10">{children}</span>
       <span className="absolute inset-0 rounded-full bg-rose/40 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
@@ -46,7 +40,7 @@ function GlowButton({
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-display text-gold-gradient animate-shimmer text-center text-3xl font-bold sm:text-5xl">
+    <h2 className="font-display text-gold-gradient animate-shimmer text-center text-2xl font-bold sm:text-5xl">
       {children}
     </h2>
   );
@@ -85,14 +79,16 @@ function BirthdayPage() {
 
   if (!opened) {
     return (
-      <main className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+      <main className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 text-center sm:px-6">
         <Particles />
         <div className="animate-fade-in relative z-10 max-w-xl">
-          <h1 className="font-display text-4xl font-bold tracking-tight sm:text-6xl">
+          <h1 className="font-display text-3xl font-bold tracking-tight sm:text-6xl">
             {C.opening.hey}
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground sm:text-xl">{C.opening.tease}</p>
-          <div className="mt-12">
+          <p className="mx-auto mt-5 max-w-xs text-base text-muted-foreground sm:mt-6 sm:max-w-none sm:text-xl">
+            {C.opening.tease}
+          </p>
+          <div className="mt-10 sm:mt-12">
             <GlowButton onClick={open}>{C.opening.button}</GlowButton>
           </div>
         </div>
@@ -109,17 +105,17 @@ function BirthdayPage() {
       {/* Hero */}
       <section
         ref={mainRef}
-        className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 py-20 text-center"
+        className="relative flex min-h-[100svh] flex-col items-center justify-center px-4 py-14 text-center sm:px-6 sm:py-20"
       >
         <Balloons />
         <div className="animate-scale-in relative z-10 max-w-3xl">
-          <h1 className="font-display text-gold-gradient animate-shimmer text-3xl leading-tight font-extrabold sm:text-6xl">
+          <h1 className="font-display text-gold-gradient animate-shimmer text-2xl leading-tight font-extrabold sm:text-6xl">
             {C.hero.title}
           </h1>
           <div className="mt-10">
             <Cake />
           </div>
-          <p className="mx-auto mt-10 max-w-xl text-base whitespace-pre-line text-muted-foreground sm:text-xl">
+          <p className="mx-auto mt-8 max-w-[19rem] text-sm whitespace-pre-line text-muted-foreground sm:mt-10 sm:max-w-xl sm:text-xl">
             {C.hero.message}
           </p>
           <p className="mt-12 text-xs tracking-[0.3em] text-muted-foreground uppercase">
@@ -129,12 +125,12 @@ function BirthdayPage() {
       </section>
 
       {/* Celebration */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-4 py-16 sm:px-6 sm:py-24">
         <Reveal className="mx-auto max-w-3xl">
-          <div className="glass relative overflow-hidden rounded-3xl p-8 text-center sm:p-14">
+          <div className="glass relative overflow-hidden rounded-3xl p-6 text-center sm:p-14">
             <Balloons count={4} />
             <SectionTitle>{C.celebration.heading}</SectionTitle>
-            <p className="relative z-10 mt-6 text-xl font-medium sm:text-2xl">
+            <p className="relative z-10 mt-5 text-lg font-medium sm:mt-6 sm:text-2xl">
               {C.celebration.line}
             </p>
             <div className="relative z-10 mt-10">
@@ -151,11 +147,11 @@ function BirthdayPage() {
       </section>
 
       {/* Message */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-4 py-16 sm:px-6 sm:py-24">
         <Reveal className="mx-auto max-w-3xl">
-          <div className="glass rounded-3xl p-8 text-center sm:p-14">
+          <div className="glass rounded-3xl p-6 text-center sm:p-14">
             <SectionTitle>{C.note.heading}</SectionTitle>
-            <p className="font-hand mt-8 text-2xl leading-relaxed whitespace-pre-line text-foreground/90 sm:text-4xl">
+            <p className="font-hand mt-7 text-xl leading-relaxed whitespace-pre-line text-foreground/90 sm:mt-8 sm:text-4xl">
               {C.note.text}
             </p>
           </div>
@@ -163,11 +159,11 @@ function BirthdayPage() {
       </section>
 
       {/* Memory Lane */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-4 py-16 sm:px-6 sm:py-24">
         <Reveal>
           <SectionTitle>{C.memories.heading}</SectionTitle>
         </Reveal>
-        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-8 grid max-w-5xl grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
           {C.memories.photos.map((p, i) => (
             <Reveal key={i} delay={i * 90}>
               <figure
@@ -195,14 +191,19 @@ function BirthdayPage() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="mx-auto mt-12 max-w-2xl text-center sm:mt-16">
+          <p className="font-display text-gold-gradient animate-shimmer text-2xl font-extrabold leading-tight sm:text-4xl">
+            {C.memories.message}
+          </p>
+        </Reveal>
       </section>
 
       {/* Reasons */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-4 py-16 sm:px-6 sm:py-24">
         <Reveal>
           <SectionTitle>{C.reasons.heading}</SectionTitle>
         </Reveal>
-        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-8 grid max-w-5xl grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {C.reasons.items.map((r, i) => (
             <Reveal key={r.title} delay={i * 80}>
               <button
@@ -221,7 +222,7 @@ function BirthdayPage() {
       </section>
 
       {/* Surprise */}
-      <section className="relative px-6 py-24 text-center">
+      <section className="relative px-4 py-16 text-center sm:px-6 sm:py-24">
         {!moreRevealed ? (
           <Reveal>
             <GlowButton
@@ -253,7 +254,7 @@ function BirthdayPage() {
       {/* Finale */}
       <section
         ref={finaleRef}
-        className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center"
+        className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 text-center sm:px-6"
       >
         <Fireworks />
         {finaleStep >= 1 && <Confetti continuous />}
@@ -270,9 +271,7 @@ function BirthdayPage() {
               <h2 className="font-display text-gold-gradient animate-shimmer text-3xl leading-tight font-extrabold sm:text-6xl">
                 {C.finale.title}
               </h2>
-              <p className="mt-6 text-base text-muted-foreground sm:text-xl">
-                {C.finale.subtitle}
-              </p>
+              <p className="mt-6 text-base text-muted-foreground sm:text-xl">{C.finale.subtitle}</p>
             </div>
           )}
         </div>
