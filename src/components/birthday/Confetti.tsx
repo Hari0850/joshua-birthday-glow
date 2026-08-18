@@ -49,7 +49,7 @@ export function Confetti({
           size: 4 + Math.random() * 7,
           rot: Math.random() * Math.PI,
           vr: (Math.random() - 0.5) * 0.3,
-          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          color: COLORS[Math.floor(Math.random() * COLORS.length)] as string,
           life: 1,
         });
       }
