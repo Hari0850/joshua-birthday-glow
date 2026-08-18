@@ -32,11 +32,6 @@ export const birthday = {
     message: "HAPPY BIRTHDAY LAZEREHH 🎉🎂🥳",
     photos: [
       { src: "/photos/joshua-birthday.jpeg", caption: "That one unforgettable day" },
-      { src: "", caption: "Golden hour vibes" },
-      { src: "", caption: "Laughing till it hurt" },
-      { src: "", caption: "Adventure mode: ON" },
-      { src: "", caption: "Just being legends" },
-      { src: "", caption: "More to come ✨" },
     ],
   },
 
